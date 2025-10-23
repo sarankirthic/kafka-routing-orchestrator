@@ -7,7 +7,6 @@ class BaseConfig:
     REDIS_URL = os.getenv("REDIS_URL", "redis://localhost:6379/0")
     KAFKA_BOOTSTRAP_SERVERS = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
     KAFKA_CLIENT_ID = os.getenv("KAFKA_CLIENT_ID", "contact-center-api")
-    # Topic names (override per env if needed)
     TOPIC_ROUTING_REQUESTS = os.getenv("TOPIC_ROUTING_REQUESTS", "customer.routing.requests")
     TOPIC_ASSIGNMENTS = os.getenv("TOPIC_ASSIGNMENTS", "customer.assignments")
 

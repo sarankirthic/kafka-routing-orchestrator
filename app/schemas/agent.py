@@ -2,10 +2,12 @@ from typing import Optional
 from pydantic import BaseModel, Field, constr
 from enum import Enum
 
+
 class AgentStatus(str, Enum):
     available = "available"
     busy = "busy"
     offline = "offline"
+
 
 class AgentCreate(BaseModel):
     agent_id: constr(min_length=2, max_length=64)
@@ -25,10 +27,12 @@ class AgentCreate(BaseModel):
             }
         }
 
+
 class AgentUpdate(BaseModel):
     status: Optional[AgentStatus]
     skills: Optional[str]
     current_load: Optional[int] = Field(default=None, ge=0)
+
 
 class AgentResponse(BaseModel):
     agent_id: str

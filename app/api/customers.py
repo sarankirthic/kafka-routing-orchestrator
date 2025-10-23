@@ -6,6 +6,7 @@ from ..models import Customer, CustomerStatus
 
 bp = Blueprint("customers", __name__)
 
+
 @bp.get("")
 def list_customers():
     # Filters: tenant_id, status, skill
@@ -27,6 +28,7 @@ def list_customers():
 
     customers = db.session.execute(stmt).scalars().all()
     return jsonify([c.to_dict() for c in customers]), HTTPStatus.OK
+
 
 @bp.post("/route")
 def enqueue_route_request():

@@ -9,14 +9,12 @@ def main():
     with app.app_context():
         db.create_all()
 
-        # Seed example agents with diverse skills and statuses
         agents = [
             Agent(agent_id="agent001", tenant_id="tenant01", skills="billing,support", status=AgentStatus.AVAILABLE, current_load=0),
             Agent(agent_id="agent002", tenant_id="tenant01", skills="support", status=AgentStatus.BUSY, current_load=2),
             Agent(agent_id="agent101", tenant_id="tenant02", skills="sales", status=AgentStatus.AVAILABLE),
         ]
 
-        # Seed example customers waiting for routing
         customers = [
             Customer(customer_id="cust001", tenant_id="tenant01", requested_skill="billing", status=CustomerStatus.QUEUED, priority=1),
             Customer(customer_id="cust002", tenant_id="tenant01", requested_skill="support", status=CustomerStatus.QUEUED, priority=0),

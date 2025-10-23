@@ -1,4 +1,3 @@
-# app/api/assignments.py
 from flask import Blueprint, jsonify, request
 from http import HTTPStatus
 from sqlalchemy import select
@@ -6,6 +5,7 @@ from ..extensions import db
 from ..models import Assignment
 
 bp = Blueprint("assignments", __name__)
+
 
 @bp.get("/<customer_id>")
 def get_assignment(customer_id: str):
